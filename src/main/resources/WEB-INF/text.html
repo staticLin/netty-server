@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="http://static.how2j.cn/css/front/style.css"/>
+    <!-- <link href="/css/all.css" rel="stylesheet"> -->
+    <link href="http://static.how2j.cn/css/all.css" rel="stylesheet">
+    <!-- <link href="http://how2j-static.oss-cn-beijing.aliyuncs.com/css/all.css" rel="stylesheet"> -->
+    <!-- 	<link rel="stylesheet" type="text/css" href="/css/front/style.css" /> -->
+    <!--<link rel="shortcut icon" href="/img/site/favicon.ico"/>-->
+    <!-- <script src="/js/all.js"></script> -->
+    <script src="http://static.how2j.cn/js/all.js"></script>
+
+    <script src="http://static.how2j.cn/js/how2j/code.js"></script>
+    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
+    <style>
+        .div4NotActive {
+            display: none;
+        }
+
+        .div4Active {
+            display: none;
+        }
+
+        div.stepAnswer {
+            display: none;
+        }
+
+        div.stepAnswerStatment {
+            display: none;
+        }
+
+        .requireProjectRight {
+            display: none;
+        }
+
+        .showIfProjectRight {
+            display: none;
+        }
+
+        .showIfNotProjectRight {
+            display: none;
+        }
+
+        .showIfNotLogin {
+            display: none;
+        }
+
+        video {
+            cursor: pointer;
+        }
+
+        .showIfAdmin {
+            display: none;
+        }
+
+        .menuName {
+            font-size: 12px !important;
+        }
+    </style>
+
+
+    <style>
+        <!--
+        pre {
+        --> <!-- width: 500 px;
+        --> <!--
+        }
+
+        -->
+    </style>
+
+
+    <title>登录</title>
+
+    <!--<script src="/js/jquery.form.js"></script>-->
+    <script>
+        $(function () {
+
+            function login() {
+                $("#errorDiv").hide();
+
+                $("#registerTab").removeClass("active");
+                $("#loginTab").addClass("active");
+
+                $("#loginDiv").show();
+                $("#registerDiv").hide();
+            }
+
+            login();
+
+        });
+    </script>
+
+
+</head>
+
+
+<body>
+
+
+<div id="allContent">
+
+    <div style="max-width:400px;margin:100px auto;" id="loginRegisterDiv">
+
+        <div id="errorDiv" style="display:none" class="alert alert-danger alert-dismissable">
+
+        <span id="errorMessage"></span>
+    </div>
+
+    <div id="loginDiv" style="display:none">
+        <form class="loginRegisterform" method="post" action="frontlogin">
+            <br>
+            <span class="text-danger" style="font-weight:bold">全球最大的同性交流聊天室</span>
+            <div></div>
+            <span class="text-muted">请输入</span>
+
+            <span class="text-success" style="font-weight:bold">昵称</span>
+
+            <br/>
+            <br/>
+            <input name="user.email" class="form-control" placeholder="昵称" required>
+
+            <!--<span class="label label-danger">这里好空啊</span>-->
+            <br>
+            <br>
+            <input type="button" class="btn btn-lg btn-info btn-block " value="进入聊天室" onclick="CHAT.login();" />
+            <!--<button class="btn btn-lg btn-info btn-block " type="submit">进入聊天室</button>-->
+
+        </form>
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

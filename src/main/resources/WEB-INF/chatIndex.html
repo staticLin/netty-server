@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"
+          name="viewport">
+    <title>交流聊天室</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script type="text/javascript" src="js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.snowfall.js"></script>
+    <script type="text/javascript" src="js/chat.util.js"></script>
+    <link rel="icon" href="data:;base64,=">
+
+    <link rel="stylesheet" type="text/css" href="http://static.how2j.cn/css/front/style.css"/>
+    <!-- <link href="/css/all.css" rel="stylesheet"> -->
+    <link href="http://static.how2j.cn/css/all.css" rel="stylesheet">
+    <!-- <link href="http://how2j-static.oss-cn-beijing.aliyuncs.com/css/all.css" rel="stylesheet"> -->
+    <!-- 	<link rel="stylesheet" type="text/css" href="/css/front/style.css" /> -->
+    <!--<link rel="shortcut icon" href="/img/site/favicon.ico"/>-->
+    <!-- <script src="/js/all.js"></script> -->
+    <!--<script src="http://static.how2j.cn/js/all.js"></script>-->
+
+    <!--<script src="http://static.how2j.cn/js/how2j/code.js"></script>-->
+
+    <style>
+
+        .div4NotActive {
+            display: none;
+        }
+
+        .div4Active {
+            display: none;
+        }
+
+        div.stepAnswer {
+            display: none;
+        }
+
+        div.stepAnswerStatment {
+            display: none;
+        }
+
+        .requireProjectRight {
+            display: none;
+        }
+
+        .showIfProjectRight {
+            display: none;
+        }
+
+        .showIfNotProjectRight {
+            display: none;
+        }
+
+        .showIfNotLogin {
+            display: none;
+        }
+
+        video {
+            cursor: pointer;
+        }
+
+        .showIfAdmin {
+            display: none;
+        }
+
+        .menuName {
+            font-size: 12px !important;
+        }
+
+        section.user {
+            float:right;
+            text-align:right;
+        }
+        section.user>div {
+            max-width: 100%;
+            position:relative;
+            display: inline-block;
+            padding:8px;
+            margin:0 10px 0 12px;
+            text-align:left;
+            border-radius:10px;
+            color:#fff;
+            box-shadow: inset 0 0 1px #007aff;
+            background-color:#007aff;
+            vertical-align: top;
+            word-break: break-all;
+        }
+    </style>
+
+
+    <style>
+        <!--
+        pre {
+        --> <!-- width: 500 px;
+        --> <!--
+        }
+
+        -->
+    </style>
+
+
+    <title>登录</title>
+
+    <!--<script src="/js/jquery.form.js"></script>-->
+    <script>
+        $(function () {
+
+            function login() {
+                $("#errorDiv").hide();
+
+                $("#registerTab").removeClass("active");
+                $("#loginTab").addClass("active");
+
+                $("#loginDiv").show();
+                $("#registerDiv").hide();
+            }
+
+            login();
+
+        });
+    </script>
+</head>
+
+<body>
+<div id="loginbox">
+    <div id="allContent">
+
+        <div style="max-width:400px;margin:100px auto;" id="loginRegisterDiv">
+
+            <div id="errorDiv" style="display:none" class="alert alert-danger alert-dismissable">
+
+                <span id="errorMessage"></span>
+            </div>
+
+            <div id="loginDiv" style="display:none">
+                <form class="loginRegisterform" method="post" action="frontlogin">
+                    <br>
+                    <span class="text-danger" style="font-weight:bold">交流聊天室</span>
+                    <div></div>
+                    <span class="text-muted">请输入</span>
+
+                    <span class="text-success" style="font-weight:bold">昵称</span>
+
+                    <br/>
+                    <br/>
+                    <input id="nickname" name="nickname" class="form-control" placeholder="昵称">
+
+                    <!--<span class="label label-danger">这里好空啊</span>-->
+                    <br>
+                    <br>
+                    <input type="button" class="btn btn-lg btn-info btn-block " value="进入聊天室" onclick="CHAT.login();"/>
+                    <!--<button class="btn btn-lg btn-info btn-block " type="submit">进入聊天室</button>-->
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="chatbox" style="display: none;">
+    <div style="background:#3d3d3d;height: 28px; width: 100%;font-size:12px;position: fixed;top: 0px;z-index: 999;">
+        <div style="line-height: 28px;color:#fff;">
+            <span style="text-align:left;margin-left:10px;">交流聊天室</span>
+            <span style="float:right; margin-right:10px;">
+                	<span>当前在线 <span id="onlinecount"> 0 </span> 人 </span> |
+	                <span id="shownikcname"> 匿名 </span> |
+	                <a href="javascript:;" onclick="CHAT.logout()" style="color:#fff;"> 退出</a>
+                </span>
+        </div>
+    </div>
+    <div id="doc">
+        <div id="chat">
+            <div id="message" class="message">
+                <div id="onlinemsg"
+                     style="background:#EFEFF4; font-size:12px; margin-top:40px; margin-left:10px; color:#666;">
+                </div>
+            </div>
+            <form onsubmit="return false;">
+                <div class="tool-box">
+                    <div class="face-box" id="face-box"></div>
+                    <span class="face" onclick="CHAT.openFace()" title="选择表情"></span>
+                    <!--
+                        <span class="img" id="tool-img-btn" title="发送图片"></span>
+                        <span class="file" id="tool-file-btn" title="上传文件"></span>
+                     -->
+                    <span class="flower" onclick="CHAT.sendFlower()" title="送鲜花"></span>
+                </div>
+                <div class="input-box">
+                    <div class="input" contenteditable="true" id="send-message"></div>
+                    <div class="action">
+                        <input class="button" type="button" id="mjr_send" onclick="CHAT.sendText()" value="发送"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Jul 02 17:23:24 CST 2019
+@default-HZT-http\://192.168.168.106\:8081/repository/maven-public/.lastUpdated=1562059404610
+http\://192.168.168.106\:8081/repository/maven-public/.error=Could not transfer artifact org.apache.maven.plugins\:maven-resources-plugin\:pom\:2.6 from/to HZT (http\://192.168.168.106\:8081/repository/maven-public/)\: Connect to 192.168.168.106\:8081 [/192.168.168.106] failed\: Operation timed out (Connection timed out)
