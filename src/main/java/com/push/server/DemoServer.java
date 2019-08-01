@@ -35,7 +35,7 @@ public class DemoServer {
                     });
 
 
-            // 绑定端口
+            // 绑定端口号
             ChannelFuture channelFuture = bootstrap.bind(port);
             // 阻塞在此，直到被关闭
             channelFuture.channel().closeFuture().sync();
